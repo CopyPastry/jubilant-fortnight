@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Event</title>
+</head>
+<body>
+
+<h1>Create New Event</h1>
+
+<!-- create form for creating an event -->
+<form action="">
+	Title:
+	<input type="text" name="title" required><br>
+	Location:
+	<input type="text" name="location" required><br>
+	Date:
+	<input type="date" name="day" required><br>
+	Time:
+	<input type="time" name="time" required><br>
+	Seriousness:<br>
+	<input type="radio" name="serious" value="low" checked> Low<br> 
+	<input type="radio" name="serious" value="medium"> Medium<br>
+	<input type="radio" name="serious" value="high"> High<br>
+	Event Description:<br>
+	<textarea name="message" rows="5" cols="50">Enter a description here.</textarea><br>
+	<input type="submit" value="Post Event">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <meta charset="utf-8">
+      <title>PickUp-Sports</title>
+      <!-- <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:100" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="screen">
+
+      <link rel="stylesheet" href="style.css"> -->
+  </head>
+
+
+  <body>
+    <header>
+      <div class="logo-container">
+        <img src="logo.jpg" alt="PickUp logo">
+      </div>
+      <h1 class="page-header"><a href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwiIvazPnMfZAhVE4GMKHTbIAREQPAgD">PickUp!</a></h1>
+    </header>
+
+    <main class="content">
+
+        <!-- filter part -->
+        <aside class="filter-container">
+            <!--*****<fieldset id="filter-container" class="filter-fieldset"> -->
+            <h2>Filters</h2>
+            <!-- Search the key words from title -->
+            <div class="filter-input-container">
+                <label for="filter-title" class="filter-input-label">Title</label>
+                <input type="text" name="filter-title" id="filter-title" class="filter-input">
+            </div>
+            <!-- Search by date -->
+            <div class="filter-input-container">
+                <label for="filter-date" class="filter-input-label">Date</label>
+                <input type="text" name="filter-day" id="filter-day" class="filter-input" placeholder="dd">
+                <input type="text" name="filter-month" id="filter-month" class="filter-input" placeholder="mm">
+                <input type="text" name="filter-year" id="filter-year" class="filter-input" placeholder="yy">
+            </div>
+            <!-- Search by seriousness -->
+            <div class="filter-input-container">
+                <label for="filter-serious">Seriousness</label>
+                <select id="filter-serious" class="filter-input" name="filter-serious">
+                    <option selected value="">Any</option>
+                    <option>Play hard</option>
+                    <option>Not that hard</option>
+                    <option>Just for fun</option>
+                </select>
+            </div>
+            <!-- Search Button -->
+            <div>
+            <button id="filter-search-button" class="search-button">Search</button>
+            </div>
+            <!--Post Button -->
+            <div>
+            <button id="filter-post-button" class="post-button">Post Event</button>
+            </div>
+            <!-- *****</fieldset> -->
+
+        </aside>
+
+        <section id="results">
+
+          <div class="post-result" event-day="20" event-month="4" event-year="2018" event-seriousness="Just for fun">
+            <div class="result-contents">
+              <div class="result-info-container">
+                <a href="#" class="result-poster">Ziyu Xiong</a> <span class="result-title">Join my basketball team</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="post-result" event-day="30" event-month="5" event-year="2018" event-seriousness="Play hard">
+            <div class="result-contents">
+              <div class="result-info-container">
+                <a href="#" class="result-poster">Michael Chan</a> <span class="result-title">Play hard, Word hard</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="post-result" event-day="2" event-month="6" event-year="2018" event-seriousness="Not that hard">
+            <div class="result-contents">
+              <div class="result-info-container">
+                <a href="#" class="result-poster">Jordan Clark</a> <span class="result-title">Work out, but not that hard</span>
+              </div>
+            </div>
+          </div>
+            <!-- class for the all the results -->
+            <!-- <div class="result"> -->
+                <!-- class for 1 single result -->
+                <!-- <div class="result-contents"> -->
+                    <!-- <div class="poster-container">
+                    </div>
+                    <div class="title-containter">
+                    </div>
+                    <div class="date-container">
+                    </div>
+                    <div class="join-button">
+                    </div> -->
+               <!-- </div> -->
+        </section>
+        </main>
+        <!-- popup window -->
+        <!-- <button type="button"id="post-event-button" class="post-button">Post Event</button> -->
+        <div id="modal-backdrop" class="hidden"></div>
+        <div id="post-event-modal" class="hidden">
+            <div class="popup-window">
+                <!-- header and "x" cancel button-->
+                <div class="popup-header">
+                    <h3>Event Info<font size="1">(do not leave blanks)</font></h3>
+                    <button type="button" id="popup-x" class="hide-button">x</button>
+                </div>
+                <!--info of the post -->
+                <div class="popup-info">
+                    <label for="popup-title-input">Event Title</label>
+                    <input type="text" id="popup-title-input" placeholder="brief and attractive"></input>
+                </div>
+
+                <div class="popup-info">
+                    <label for="popup-date-input">Event Date</label>
+                    <input type="text" id="popup-day" placeholder="dd">
+                    <input type="text" id="popup-month" placeholder="mm">
+                    <input type="text" id="popup-year" placeholder="yy">
+                </div>
+
+                <div class="popup-info">
+                    <label for="popup-serious-input">Event Seriousness</label>
+                    <select id="popup-serious-input">
+                    <option selected value="">Any</option>
+                    <option>Play hard</option>
+                    <option>Not that hard</option>
+                    <option>Just for fun</option>
+                </div>
+
+            </div>
+        </div>
+  </body>
+  <script src="index.js" charset="utf-8"></script>
+</html>

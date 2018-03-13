@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Account</title>
+<script src="account.js"></script>
+</head>
+<body>
+
+<h1>Create Account</h1>
+
+<!-- create the error section -->
+<p id="error" class="error"></p>
+
+<!-- Create form for creating an account -->
+<form name="createAccount" action="" onsubmit="return validateAccountCreate();" method="post">
+	User name:
+	<input type="text" name="username" required><br>
+	E-mail:
+	<input type="email" name="email" required><br>
+	Password:
+	<input type="password" name="pass" required><br>
+
+	<!-- Have user confirm their password by entering again -->
+
+	Confirm Password:
+	<input type="password" name="passconfirm" required><br>
+	<input type="submit" value="Create Account">
+	<input type="button" onclick="location.href='login.html';" value="Log In">
+</form>
+
+
+</body>
+</html>
