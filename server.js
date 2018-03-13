@@ -29,14 +29,186 @@ app.get('/home', function(req, res) {
   console.log("== Server status from home", res.statusCode);
 });
 
-app.get('/newPost', function(req, res) {
+app.get('/post', function(req, res) {
   res.status(200).render('post_event');
   console.log("== Server status from new post", res.statusCode);
 });
 
-app.get('/sport/:sportId', function(req, res) {
-  var id = req.params.sportId;
-  res.status(200).render('sports_page', {name: id});
+app.get('/resetpassword', function(req, res) {
+  res.status(200).render('new_password');
+  console.log("== Server status from reset password", res.statusCode);
+});
+
+// Hard-coded Sports
+
+app.get('/sport/Basketball', function(req, res) {
+  var id = "Basketball";
+  var collection;
+  var results;
+    collection = mongoConnection.collection('basketball');
+    results = collection.find({}).toArray(function (err, results) {
+      if (err) {
+        res.status(500).send("Error fetching");
+      }
+      else {
+        res.status(200).render('sports_page', {
+          name: id,
+          result: results
+        });
+      }
+    });
+  console.log("== Server status from sport page", res.statusCode);
+});
+
+app.get('/sport/Baseball', function(req, res) {
+  var id = "Baseball";
+  var collection;
+  var results;
+    collection = mongoConnection.collection('baseball');
+    results = collection.find({}).toArray(function (err, results) {
+      if (err) {
+        res.status(500).send("Error fetching");
+      }
+      else {
+        res.status(200).render('sports_page', {
+          name: id,
+          result: results
+        });
+      }
+    });
+  console.log("== Server status from sport page", res.statusCode);
+});
+
+app.get('/sport/Football', function(req, res) {
+  var id = "Football";
+  var collection;
+  var results;
+    collection = mongoConnection.collection('football');
+    results = collection.find({}).toArray(function (err, results) {
+      if (err) {
+        res.status(500).send("Error fetching");
+      }
+      else {
+        res.status(200).render('sports_page', {
+          name: id,
+          result: results
+        });
+      }
+    });
+  console.log("== Server status from sport page", res.statusCode);
+});
+
+app.get('/sport/Rugby', function(req, res) {
+  var id = "Rugby";
+  var collection;
+  var results;
+    collection = mongoConnection.collection('rugby');
+    results = collection.find({}).toArray(function (err, results) {
+      if (err) {
+        res.status(500).send("Error fetching");
+      }
+      else {
+        res.status(200).render('sports_page', {
+          name: id,
+          result: results
+        });
+      }
+    });
+  console.log("== Server status from sport page", res.statusCode);
+});
+
+app.get('/sport/Soccer', function(req, res) {
+  var id = "Soccer";
+  var collection;
+  var results;
+    collection = mongoConnection.collection('soccer');
+    results = collection.find({}).toArray(function (err, results) {
+      if (err) {
+        res.status(500).send("Error fetching");
+      }
+      else {
+        res.status(200).render('sports_page', {
+          name: id,
+          result: results
+        });
+      }
+    });
+  console.log("== Server status from sport page", res.statusCode);
+});
+
+app.get('/sport/Hockey', function(req, res) {
+  var id = "Hockey";
+  var collection;
+  var results;
+    collection = mongoConnection.collection('hockey');
+    results = collection.find({}).toArray(function (err, results) {
+      if (err) {
+        res.status(500).send("Error fetching");
+      }
+      else {
+        res.status(200).render('sports_page', {
+          name: id,
+          result: results
+        });
+      }
+    });
+  console.log("== Server status from sport page", res.statusCode);
+});
+
+app.get('/sport/Volleyball', function(req, res) {
+  var id = "Volleyball";
+  var collection;
+  var results;
+    collection = mongoConnection.collection('volleyball');
+    results = collection.find({}).toArray(function (err, results) {
+      if (err) {
+        res.status(500).send("Error fetching");
+      }
+      else {
+        res.status(200).render('sports_page', {
+          name: id,
+          result: results
+        });
+      }
+    });
+  console.log("== Server status from sport page", res.statusCode);
+});
+
+app.get('/sport/Tennis', function(req, res) {
+  var id = "Tennis";
+  var collection;
+  var results;
+    collection = mongoConnection.collection('tennis');
+    results = collection.find({}).toArray(function (err, results) {
+      if (err) {
+        res.status(500).send("Error fetching");
+      }
+      else {
+        res.status(200).render('sports_page', {
+          name: id,
+          result: results
+        });
+      }
+    });
+  console.log("== Server status from sport page", res.statusCode);
+});
+
+app.get('/sport/Frisbee', function(req, res) {
+  var id = "Frisbee";
+  var collection;
+  var results;
+    collection = mongoConnection.collection('frisbee');
+    results = collection.find({}).toArray(function (err, results) {
+      if (err) {
+        res.status(500).send("Error fetching");
+      }
+      else {
+        res.status(200).render('sports_page', {
+          name: id,
+          result: results
+        });
+      }
+    });
   console.log("== Server status from sport page", res.statusCode);
 });
 
@@ -63,6 +235,28 @@ else {
   res.status(400).send("User signup failed");
 }
 });
+
+// Hard-coded Sports
+
+// app.post('/newBasketball', function (req, res) {
+// // pls check this i don't know if this works!!!
+// if (req.body && req.body.user && req.body.title && req.body.day && req.body.month && req.body.year && req.body.seriousness) {
+//   var collection = mongoConnection.collection('basketball');
+//   collection.insertOne({
+//     user: req.body.user,
+//     title: req.body.title,
+//     day: req.body.day
+//     month: req.body.month
+//     year: req.body.year
+//     seriousness: req.body.seriousness
+//   })
+//   res.status(200).send("Successfully added post");
+//   console.log("== Post Added");
+// }
+// else {
+//   res.status(400).send("Event post failed");
+// }
+// });
 
 app.post('/verifyLogIn', function (req, res) {
 

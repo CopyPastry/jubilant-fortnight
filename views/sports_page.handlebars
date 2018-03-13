@@ -44,7 +44,7 @@
 
     <section id="results">
 
-      {{#each post-result}}
+      {{#each result}}
         {{>insert_post}}
       {{/each}}
 
@@ -76,14 +76,14 @@
             <!--info of the post -->
             <div class="popup-info">
                 <label for="popup-title-input">Event Title</label>
-                <input type="text" id="popup-title-input" placeholder="brief and attractive"></input>
+                <input type="text" id="popup-title-input" placeholder="brief and attractive" name= "title" required></input>
             </div>
 
             <div class="popup-info">
                 <label for="popup-date-input">Event Date</label>
-                <input type="text" id="popup-day" placeholder="dd">
-                <input type="text" id="popup-month" placeholder="mm">
-                <input type="text" id="popup-year" placeholder="yy">
+                <input type="text" id="popup-day" placeholder="dd" name= "day" required>
+                <input type="text" id="popup-month" placeholder="mm" name= "month" required>
+                <input type="text" id="popup-year" placeholder="yy" name= "year" required>
             </div>
 
             <div class="popup-info">

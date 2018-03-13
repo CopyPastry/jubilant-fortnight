@@ -198,6 +198,41 @@ function newUser (username, password, email) {
   request.send(body);
 }
 
+function showEventModal () {
+
+  var modal = document.getElementById('post-event-modal');
+  var modalBackdrop = document.getElementById('modal-backdrop');
+
+  modal.classList.remove('hidden');
+  modalBackdrop.classList.remove('hidden');
+}
+
+function hideEventModal () {
+
+  var modal = document.getElementById('post-event-modal');
+  var modalBackdrop = document.getElementById('modal-backdrop');
+
+  modal.classList.add('hidden');
+  modalBackdrop.classList.add('hidden');
+
+  clearEventModalInputs();
+}
+
+function clearEventModalInputs() {
+
+  var inputs = [
+    document.getElementById('popup-title-input'),
+    document.getElementById('popup-day'),
+    document.getElementById('popup-month'),
+    document.getElementById('popup-year')
+  ];
+
+  inputs.forEach(function (input) {
+    input.value = '';
+  });
+
+}
+
 function showModal () {
 
   var modal = document.getElementById('modal');
@@ -249,6 +284,14 @@ function addUser() {
   }
 }
 
+function newEvent() {
+  // maybe identical to newUser? might need to make one for each sport
+}
+
+function addEvent() {
+  // occurs after submit button is clicked. maybe identical to addUser?
+}
+
 function successfulLogIn() {
   /*var request = new XMLHttpRequest();
   console.log(document.body);
@@ -261,7 +304,7 @@ function successfulLogIn() {
   request.open("GET", requestURL, true);
 
   request.send();*/
-  location.assign("http://os1.engr.oregonstate.edu:3001/home");
+  location.assign("http://flip1.engr.oregonstate.edu:4000/home");
 }
 
 function goSportsPage() {
@@ -285,9 +328,13 @@ function goSportsPage() {
   */
 
   var sport = event.target.id;
-  var url = "http://os1.engr.oregonstate.edu:3001/sport/";
+  var url = "http://flip1.engr.oregonstate.edu:4000/sport/";
   var full = url.concat(sport);
   location.assign(full);
+}
+
+function goRecoverPassword() {
+  location.assign("http://flip1.engr.oregonstate.edu:4000/resetpassword");
 }
 
 function verifyLogIn(username, password) {
@@ -346,6 +393,16 @@ window.addEventListener('DOMContentLoaded', function() {
     hideModalButton.addEventListener('click', hideModal);
   }
 
+  var postEventButton = document.getElementById('filter-post-button');
+  if (postEventButton) {
+    postEventButton.addEventListener('click', showEventModal);
+  }
+
+  var hideEventButton = document.getElementById('popup-x');
+  if (hideEventButton) {
+    hideModalButton.addEventListener('click', hideEventModal);
+  }
+
   var createAccountButton = document.getElementById('confirm-button');
   if (createAccountButton) {
     createAccountButton.addEventListener('click', addUser);
@@ -355,6 +412,11 @@ window.addEventListener('DOMContentLoaded', function() {
   console.log(sportsButton);
   for (var i = 0; i < sportsButton.length; i++) {
     sportsButton[i].addEventListener('click', goSportsPage);
+  }
+
+  var forgotPasswordButton = document.getElementById('recover-password-button');
+  if (forgotPasswordButton) {
+    forgotPasswordButton.addEventListener('click', goRecoverPassword )
   }
 
   window.addEventListener('keypress', keyPress);
